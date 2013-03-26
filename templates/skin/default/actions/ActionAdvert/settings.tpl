@@ -89,7 +89,6 @@
 {/if}
 <br/><br/>
 
-{assign var="divbgcolor" value=0} 
 {assign var="bgcolor" value='#dcdcdc'} 
 
 {foreach from=$oAdverts item=oAdvert}
@@ -107,26 +106,25 @@
 {/if}
 				
 <a name="{$oAdvert->getAdvertId()}"></a>
-
-<div class="advert_table_div_header" style="background: {if $divbgcolor++ is div by 2}#f5f5f5{else}white{/if}; display: block;" id="advert_table_div_header_{$oAdvert->getAdvertId()}"> 
-	<table border="0" width="100%" cellpadding="3" cellspacing="0">
-		<tr align="center">
-			<td width="60px">
+<div class="advert_table_div_header" style="background: #f5f5f5; display: block;" id="advert_table_div_header_{$oAdvert->getAdvertId()}"> 
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr  align="center">
+			<td width="50px">
 				{if $oAdvert->getAdvertStatus()==0}
-					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/stoped.png'}" border="0" width="32" height="32" class="js-title-comment" title="Задание <br/>остановлено">
+					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/stoped.png'}" border="0" class="js-title-comment" title="Задание <br/>остановлено">
 				{elseif $oAdvert->getAdvertStatus()==2}	
-					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/moderation.png'}" border="0" width="32" height="32" class="js-title-comment" title="Сообщение <br/> находиться <br/>на модерации">
+					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/moderation.png'}" border="0" class="js-title-comment" title="Сообщение <br/> находиться <br/>на модерации">
 				{elseif $oAdvert->getAdvertStatus()==1}
-					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/running.png'}" border="0" width="32" height="32" class="js-title-comment" title="Данное задание<br/> активно !">
+					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/running.png'}" border="0" class="js-title-comment" title="Данное задание<br/> активно !">
 				{elseif $oAdvert->getAdvertStatus()==3}
-					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/runafter.png'}" border="0" width="32" height="32" class="js-title-comment" title="Задание запуститься <br/>согласно расписанию">
+					<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/runafter.png'}" border="0" class="js-title-comment" title="Задание запуститься <br/>согласно расписанию">
 				{/if}
 			</td>	
 
-			<td width="60px">
+			<td width="50px">
 				<b>#{$oAdvert->getAdvertId()}</b>
 			</td>
-			<td width="100px">
+			<td width="100px" align="center">
 				<span class="advert-info-{if $sDefUser == $oAdvert->getAdvertUserOwnerLogin()}admin">
 					<a href="{router page='advert'}settings/sort/{$oAdvert->getAdvertUserOwnerLogin()}/all/">{$oAdvert->getAdvertUserOwnerLogin()}</a>
 				</span>
@@ -146,8 +144,8 @@
 			</td>	
 			<td width="100px">{$aBlockStyle[$oAdvert->getAdvertBlockType()][$oAdvert->getAdvertBlockCss()]}</td>
 {**}
-			<td width="150px" align="left">
-				Просмотры
+			<td width="150px" >
+				Показы
 				{if $oAdvert->getAdvertView()}
 					{$oAdvert->getAdvertView()}
 				{else}
@@ -176,30 +174,35 @@
 
 {**}				
 			<td width="130px">
-			<a href="{router page='advert'}settings/start/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('start', {$oAdvert->getAdvertId()})">
-				<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonPlay.png'}" border="0" title="Запустить">
-			</a>
-
-			<a href="{router page='advert'}settings/del/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('del', {$oAdvert->getAdvertId()})">
-				<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonDelete.png'}" border="0" title="Удалить"> 
-			</a>
-			
-			<a href="{router page='advert'}settings/stop/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('stop', {$oAdvert->getAdvertId()})">
-				<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonPause.png'}" border="0" title="Остановить">
-			</a>
-			
-			<a href="#{$oAdvert->getAdvertId()}" onclick="jQuery('#advert_table_div_content_{$oAdvert->getAdvertId()}').fadeToggle(); "> 
-				<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonSettings.png'}" border="0" title="Настройки">
-			</a>
+				<div class="button_icons">
+					<a href="#{$oAdvert->getAdvertId()}" onclick="jQuery('#advert_table_div_content_{$oAdvert->getAdvertId()}').fadeToggle(); "> 
+						<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonSettings.png'}" border="0" title="Настройки">
+					</a>
+				</div>				
+				<div class="button_icons">
+					<a href="{router page='advert'}settings/del/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('del', {$oAdvert->getAdvertId()})">
+						<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonDelete.png'}" border="0" title="Удалить"> 
+					</a>
+				</div>
+				<div class="button_icons">
+					<a href="{router page='advert'}settings/stop/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('stop', {$oAdvert->getAdvertId()})">
+						<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonPause.png'}" border="0" title="Остановить">
+					</a>
+				</div>	
+				<div class="button_icons">
+					<a href="{router page='advert'}settings/start/{$oAdvert->getAdvertUserOwnerLogin()}/{$oAdvert->getAdvertId()}/" onClick="return advert_conform_choise('start', {$oAdvert->getAdvertId()})">
+						<img src="{$aTemplateWebPathPlugin.advert|cat:'images/icons/ButtonPlay.png'}" border="0" title="Запустить">
+					</a>
+				</div>
 			</td>
 		</tr>
 	</table>
 </div>
 
-<div class="advert_table_div_content" style="background: {if $divbgcolor++ is div by 2}#f5f5f5{else}white{/if}; display: none;" id="advert_table_div_content_{$oAdvert->getAdvertId()}"> 
+<div class="advert_table_div_content" style="background: #f5f5f5; display: none;" id="advert_table_div_content_{$oAdvert->getAdvertId()}"> 
 
 <table border="0" width="100%" cellpadding="3" cellspacing="0">
-	<tr bgcolor="#cccccc">
+	<tr>
 		<td colspan="2">
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<tr align="center">

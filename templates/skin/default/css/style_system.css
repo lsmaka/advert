@@ -170,3 +170,14 @@
 	padding: 10px;
 	border-radius: 3px;
 }
+/* Кнопки управления */
+.button_icons
+{
+	float: right;
+	opacity: 0.5;
+	margin-right: 10px;
+}
+.button_icons:hover
+{
+	opacity: 1;
+}

@@ -290,6 +290,8 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 			$sPathToRedirect = 'advert/settings/sort/'.$this->GetParam(1).'/moderation';
 			
 			$sAdvertPath = Router::GetPath('advert/settings/sort/'.$this->GetParam(1).'/all').'#'.$this->GetParam(2); 
+			
+				
 			if($this->Talk_GetTalkById($iTalkId = $this->PluginAdvert_Advert_GetTalkId($this->GetParam(2))))
 			{
 				$sTalkBody = 'Повторая модерация <a href="'.$sAdvertPath.'">сообщения</a>.';
