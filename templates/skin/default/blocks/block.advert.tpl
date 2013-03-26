@@ -29,7 +29,7 @@
 	</section>
 {elseif $oAdvert->getAdvertBlockType() == 'code'}
 	<section class="block{$oAdvert->getAdvertBlockCss()}" id="block_advert_{$oAdvert->getAdvertBlockPlace()}">
-		{$oAdvert->getAdvertDataText()}
+		{$oAdvert->getAdvertDataText()|unescape:"html"}
 	</section>	
 {elseif $oAdvert->getAdvertBlockType() == 'text'}
 	<section class="block{$BlockClass}" id="block_advert_{$oAdvert->getAdvertBlockPlace()}">
@@ -41,7 +41,7 @@
 		
 		<div class="block-content{$BlockClass}">
 			{if $oAdvert->getAdvertDataText()}
-				{$oAdvert->getAdvertDataText()}
+					{$oAdvert->getAdvertDataText()}
 				<br/><br/>
 			{/if}
 			
