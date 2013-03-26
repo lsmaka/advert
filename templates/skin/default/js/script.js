@@ -76,7 +76,30 @@ function advert_changeStyle(advertBlockType, advertUserOwner)
 			$('#advert_block_css').html('no data');
 		}	
 
-	});		
+	});
+	// подсказка по активным полям в зависимости от типа блока	
+	var blocktype = $("#advert_block_type option:selected").val();
+	if(blocktype == 'text')
+	{
+		$("#advert_hint").css({'background': '#CCFF99'});
+		$("#advert_data_text").css({'background': '#CCFF99'});
+		$("#advert_data_url").css({'background': '#CCFF99'});
+		$("#advert_data_img").css({'background': '#CCFF99'});
+	}
+	else if(blocktype == 'banner')
+	{
+		$("#advert_hint").css({'background': 'none'});
+		$("#advert_data_text").css({'background': 'none'});
+		$("#advert_data_url").css({'background': '#CCFF99'});
+		$("#advert_data_img").css({'background': '#CCFF99'});
+	}
+	else if(blocktype = 'code')
+	{
+		$("#advert_hint").css({'background': 'none'});
+		$("#advert_data_text").css({'background': '#CCFF99'});
+		$("#advert_data_url").css({'background': 'none'});
+		$("#advert_data_img").css({'background': 'none'});
+	}	
 }
 
 //Подтверждение выбора

@@ -14,15 +14,15 @@
 <table border="1" width="100%" CELLPADDING="10" CELLSPACING="10">
 	<tr>
 		<td bgcolor="{$bgcolor}" width="15%">{$aLang.plugin.advert.table_hint}</td>
-		<td><input type="text" name="advert_hint" class="input-text input-width-full" value="{$oAdvert->getAdvertHint()}"></td>
+		<td><input type="text" name="advert_hint" id="advert_hint" class="input-text input-width-full" value="{$oAdvert->getAdvertHint()}"></td>
 	</tr>
 	<tr>
 		<td bgcolor="{$bgcolor}">{$aLang.plugin.advert.table_text}</td>
-		<td><textarea name="advert_data_text" rows="5" class="input-text input-width-full">{$oAdvert->getAdvertDataText()}</textarea></td>
+		<td><textarea name="advert_data_text" id="advert_data_text" rows="5" class="input-text input-width-full">{$oAdvert->getAdvertDataText()}</textarea></td>
 	</tr>	
 	<tr>
 		<td bgcolor="{$bgcolor}">{$aLang.plugin.advert.table_url}</td>
-		<td><input type="text" name="advert_data_url" class="input-text input-width-full" value="{$oAdvert->getAdvertDataUrl()}"></td>
+		<td><input type="text" name="advert_data_url" id="advert_data_url" class="input-text input-width-full" value="{$oAdvert->getAdvertDataUrl()}"></td>
 	</tr>	
 	
 	<tr>
@@ -46,7 +46,7 @@
 	<tr>
 		<td>
 			Или укажите URL &darr;
-			<input type="text" name="advert_data_img" class="input-text input-width-full" value="{$oAdvert->getAdvertDataImg()}">
+			<input type="text" name="advert_data_img" id="advert_data_img" class="input-text input-width-full" value="{$oAdvert->getAdvertDataImg()}">
 		</td>
 	</tr>	
 	{**}
@@ -451,3 +451,29 @@
 
 
 {include file='footer.tpl'}
+
+{literal}
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+	var blocktype = $("#advert_block_type option:selected").val();
+	if(blocktype == 'text')
+	{
+		$("#advert_hint").css({'background': '#CCFF99'});
+		$("#advert_data_text").css({'background': '#CCFF99'});
+		$("#advert_data_url").css({'background': '#CCFF99'});
+		$("#advert_data_img").css({'background': '#CCFF99'});
+	}
+	else if(blocktype == 'banner')
+	{
+		$("#advert_data_url").css({'background': '#CCFF99'});
+		$("#advert_data_img").css({'background': '#CCFF99'});	
+	}
+	else if(blocktype = 'code')
+	{
+		$("#advert_data_text").css({'background': '#CCFF99'});
+	}
+});	
+//]]>
+</script>
+{/literal}
