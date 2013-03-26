@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>
+        <lang name="default">Advert Blocks</lang>
+        <lang name="russian">Модуль управления рекламными объявлениями на сайте</lang>
+    </name>
+    <author>
+        <lang name="default">lsmaka</lang>
+        <lang name="russian">lsmaka</lang>
+    </author>
+    <homepage>http://livestreet.ru</homepage>
+    <settings>{advert}settings/</settings>
+    <version>1.0.0</version>
+    <requires>
+        <livestreet>0.5.1</livestreet>
+        <plugins>
+        </plugins>
+    </requires>
+    <description>
+        <lang name="default">Description of plugin Advert</lang>
+        <lang name="russian">Позволяет упраявлять рекламными объявлениями на сайте. Доступен как админ так и пользовательский режим работы.</lang>
+    </description>
+</plugin>
