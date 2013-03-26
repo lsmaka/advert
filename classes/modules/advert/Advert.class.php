@@ -77,9 +77,11 @@ class PluginAdvert_ModuleAdvert extends Module {
 	}
 	return false;
 	}
-	public function SetStart($id, $sDataStart, $sStatus) {
-	if ($this->oMapper->SetStart($id, $sDataStart, $sStatus)) {
-	
+	public function SetStart($sUserLogin, $iAdvertId, $sStatus) {
+	$sDataStart = date("Y-m-d H:i:s");
+	if ($this->oMapper->SetStart($iAdvertId, $sDataStart, $sStatus)) {
+		$cache_key = 'advert_'.$sUserLogin;
+		$this->Cache_Delete( $cache_key );		
 		return true;
 	}
 	return false;

@@ -332,7 +332,7 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 				$this->PluginAdvert_Advert_SetTalkId($oTalk->getId(), $this->GetParam(2));				
 			}
 		}
-		$oAdvert = $this->PluginAdvert_Advert_SetStart($this->GetParam(2), $sDataStart, $sStatus);
+		$oAdvert = $this->PluginAdvert_Advert_SetStart($this->GetParam(1), $this->GetParam(2), $sStatus);
 		Router::Location(Router::GetPath($sPathToRedirect).'#'.$this->GetParam(2));
 	}
 	else if ($this->GetParam(0) == 'stop')
