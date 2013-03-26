@@ -563,7 +563,13 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 			{
 				$sFileExt = $matches[1];
 			}	
-			$sPathToAdvertFile = Config::Get('plugin.advert.path_to_files').getRequest('user_owner_login').'/';
+			
+			$sPathToAdvertFile = Config::Get('plugin.advert.path_to_files').'/'.getRequest('user_owner_login').'/';
+			if(substr(Config::Get('plugin.advert.path_to_files'),-1) == '/')
+			{
+				$sPathToAdvertFile = Config::Get('plugin.advert.path_to_files').getRequest('user_owner_login').'/';	
+			}
+			
 			$sFilesName = md5($_FILES["advert_userfile"]["name"].$sData).'.'.$sFileExt;
 			
 			if(!is_dir($sPathToAdvertFile))
