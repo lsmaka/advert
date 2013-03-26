@@ -28,9 +28,11 @@
 		</div>
 	</section>
 {elseif $oAdvert->getAdvertBlockType() == 'code'}
-	<section class="block{$oAdvert->getAdvertBlockCss()}" id="block_advert_{$oAdvert->getAdvertBlockPlace()}">
-		{$oAdvert->getAdvertDataText()|unescape:"html"}
-	</section>	
+	<center>
+		<section class="block{$oAdvert->getAdvertBlockCss()}" id="block_advert_{$oAdvert->getAdvertBlockPlace()}">
+			{$oAdvert->getAdvertDataText()|unescape:"html"}
+		</section>
+	</center>	
 {elseif $oAdvert->getAdvertBlockType() == 'text'}
 	<section class="block{$BlockClass}" id="block_advert_{$oAdvert->getAdvertBlockPlace()}">
 		<header class="block-header{$BlockClass}">

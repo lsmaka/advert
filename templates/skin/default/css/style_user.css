@@ -7,6 +7,7 @@
 /* css = -redBorder  */
 /* Перееобпределение стиля block */
 .block-redBorder { border: 1px solid red; }
+.block-redBorder:last-child { margin-bottom: 10px; }
 /* Перееобпределение стиля block-header */
 .block-header-redBorder  h3  { background: red; font-size: 22px; color: white; text-align: center; }
 /* Перееобпределение стиля block-content */
@@ -15,6 +16,7 @@
 /* css = -blueBorder  */
 /* Перееобпределение стиля block */
 .block-blueBorder { border: 1px solid blue; }
+.block-blueBorder:last-child { margin-bottom: 10px; }
 /* Перееобпределение стиля block-header */
 .block-header-blueBorder  h3  { background: blue; font-size: 22px; color: white; text-align: center; }
 /* Перееобпределение стиля block-content */
@@ -23,6 +25,7 @@
 /* css = -greyBorderDashed  */
 /* Перееобпределение стиля block */
 .block-greyBorderDashed { border: 1px dashed #dcdcdc; }
+.block-greyBorderDashed:last-child { margin-bottom: 10px; }
 /* Перееобпределение стиля block-header */
 .block-header-greyBorderDashed  h3  { background: #dcdcdc; font-size: 22px; color: white; text-align: center; }
 /* Перееобпределение стиля block-content */
@@ -31,6 +34,7 @@
 /* css = -adsStyle  */
 /* Перееобпределение стиля block */
 .block-adsStyle { border: 2px solid #FF6633; border-radius: 3px;}
+.block-adsStyle:last-child { margin-bottom: 10px; }
 /* Перееобпределение стиля block-header */
 .block-header-adsStyle  h3  {font-size: 12px; color: white; background: #FF6633; padding: 5px;}
 /* Перееобпределение стиля block-content */
@@ -39,6 +43,7 @@
 /* css = -emptyCenter  */
 /* Перееобпределение стиля block */
 .block-emptyCenter {  }
+.block-emptyCenter:last-child { margin-bottom: 10px; }
 /* Перееобпределение стиля block-header */
 .block-header-emptyCenter  h3  { }
 /* Перееобпределение стиля block-content */
