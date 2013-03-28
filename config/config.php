@@ -141,4 +141,9 @@ $config['block_types'] = array (
 Config::Set('router.page.advert', 'PluginAdvert_ActionAdvert');
 $config['table']['page']= '___db.table.prefix___advert';
 
+if (is_file(dirname(__FILE__) . '/config.local.php')) 
+{
+    include(dirname(__FILE__) . '/config.local.php');
+}
+
 return $config;

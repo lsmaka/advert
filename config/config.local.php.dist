@@ -1,0 +1,9 @@
+<?php
+//
+//  Пользовательские настройки 
+//  Переименуйте вайл в config.local.php 
+//
+$config['path_to_files'] = 'uploads/advert/';
+$config['defuser'] = 'admin';
+
+?>
