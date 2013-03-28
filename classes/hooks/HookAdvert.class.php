@@ -296,14 +296,21 @@ class PluginAdvert_HookAdvert extends Hook {
 			else
 			{
 				// Для группы /blog/название_группы/ Имееют одинаковый URL 
-				if($this->User_GetUserByLogin(Router::GetActionEvent()))
+				//if($this->User_GetUserByLogin(Router::GetActionEvent()))
+				//{
+				//	$this->iUserId = $this->User_GetUserByLogin(Router::GetActionEvent())->getId();
+				//}
+				//else
+				//{
+				//	$this->sBlogName = Router::GetActionEvent();
+				//}	
+				$this->sBlogName = Router::GetActionEvent();
+				if(Router::GetParam(0) && preg_match($pattern, Router::GetParam(0), $matches))
 				{
-					$this->iUserId = $this->User_GetUserByLogin(Router::GetActionEvent())->getId();
-				}
-				else
-				{
-					$this->sBlogName = Router::GetActionEvent();
+					$this->iTopicId = $matches[1];
+					$this->iUserId = $this->getUserIdByTopicId($matches[1]);
 				}	
+				//	
 			}
 			if($this->iUserId)
 			{
