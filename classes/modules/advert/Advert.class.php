@@ -133,6 +133,6 @@ class PluginAdvert_ModuleAdvert extends Module {
 	{
 		$data = $this->oMapper->FilterGetAdvertUser($sFilterAdvertUser, $iLimit);
 		return $data;
-	}	
+	}		
 }
 ?>

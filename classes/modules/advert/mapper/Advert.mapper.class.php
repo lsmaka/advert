@@ -328,6 +328,7 @@ class PluginAdvert_ModuleAdvert_MapperAdvert extends Mapper
 		}	
 		return false;		
 	}	
+	//
 }
 
 ?>

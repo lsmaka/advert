@@ -144,8 +144,8 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 	if($this->GetParam(1) && $this->GetParam(1) != $this->oUserCurrent->getLogin() && !$this->oUserCurrent->isAdministrator())
 	{
 		Router::Location(Router::GetPath('advert'));
-	}
-	
+	}	
+	//
 		
 	if ($this->GetParam(0) == 'add')
 	{		
@@ -578,8 +578,62 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 			{
 				mkdir($sPathToAdvertFile);
 			}
+
+			//
 			if(move_uploaded_file($_FILES["advert_userfile"]["tmp_name"], $sPathToAdvertFile.$sFilesName))
 			{
+			//				
+				if(getRequest('img_width') && getRequest('img_height') )
+				{
+					$img_dist = imagecreatetruecolor(getRequest('img_width'), getRequest('img_height'));
+					
+					$img_src = null;
+					if($sFileExt == 'jpg' || $sFileExt == 'jpeg')
+					{
+						$img_src = imagecreatefromjpeg($sPathToAdvertFile.$sFilesName);
+					}
+					elseif($sFileExt == 'png')	
+					{
+						$img_src = imagecreatefrompng($sPathToAdvertFile.$sFilesName);
+					}
+					elseif($sFileExt == 'gif')
+					{
+						$img_src = imagecreatefromgif($sPathToAdvertFile.$sFilesName);
+					}
+					else
+					{
+						$img_src = imagecreatefrompng($sPathToAdvertFile.$sFilesName);
+					}
+					//
+					if(getRequest('img_width_new') && getRequest('img_height_new'))
+					{
+						$img_src_resize = imagecreatetruecolor(getRequest('img_width_new'), getRequest('img_height_new'));
+						imagecopyresampled($img_src_resize, $img_src, 0,0,0,0, getRequest('img_width_new'), getRequest('img_height_new'), getRequest('img_width_org'), getRequest('img_height_org') );
+						imagecopyresampled($img_dist, $img_src_resize, 0,0, getRequest('img_x1'), getRequest('img_y1'), getRequest('img_width'), getRequest('img_height'), getRequest('img_width'), getRequest('img_height') );
+					}
+					else
+					{
+						imagecopyresampled($img_dist, $img_src, 0,0, getRequest('img_x1'), getRequest('img_y1'), getRequest('img_width'), getRequest('img_height'), getRequest('img_width'), getRequest('img_height') );
+					}
+					if($sFileExt == 'jpg' || $sFileExt == 'jpeg')
+					{
+						imagejpeg($img_dist, $sPathToAdvertFile.$sFilesName, 100);
+					}
+					elseif($sFileExt == 'png')	
+					{
+						imagepng($img_dist, $sPathToAdvertFile.$sFilesName, 100);
+					}
+					elseif($sFileExt == 'gif')
+					{
+						imagegif($img_dist, $sPathToAdvertFile.$sFilesName, 100);
+					}				
+					else
+					{
+						imagepng($img_dist, $sPathToAdvertFile.$sFilesName, 100);
+					}
+					imagedestroy($img_dist);
+				}			
+			// img crop end
 				if(substr(Config::Get('path.root.web'),-1) == '/')
 				{
 					return Config::Get('path.root.web').$sPathToAdvertFile.$sFilesName;

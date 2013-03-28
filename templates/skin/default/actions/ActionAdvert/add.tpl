@@ -29,17 +29,30 @@
 	<tr>
 		<td rowspan="2" bgcolor="{$bgcolor}">{$aLang.plugin.advert.table_img}</td>
 		<td>
-			<input name="advert_userfile" type="file" onchange="advert_uploadfile(this);">
-			<span id="advert_userfile_size_error"></span>
-			<span id="advert_userfile_size_hint" onclick="jQuery('#advert_userfile_preview_table').fadeToggle();"></span>
-			<table border="0" width="100%" CELLPADDING="10" CELLSPACING="0" id="advert_userfile_preview_table" style="display: none; margin: 10px;">
+			<input name="advert_userfile" type="file" onchange="advert_uploadfile(this);">	
+			<span id="advert_userfile_size_hint"></span>
+			
+			<div id="advert_userfile_preview_hint" style="display: none; margin: 10px; text-align:center">
+							Ширина <input type="text" readonly name="img_width" id="advert_userfile_preview_hint_width" class="input-text" style="width:50px;">
+							Высота <input type="text" readonly name="img_height" id="advert_userfile_preview_hint_height" class="input-text" style="width:50px;">
+							
+							X1<input type="text" readonly name="img_x1" id="advert_userfile_preview_hint_x1" class="input-text" style="width:50px;">
+							Y1<input type="text" readonly name="img_y1" id="advert_userfile_preview_hint_y1" class="input-text" style="width:50px;">
+							X2<input type="text" readonly name="img_x2" id="advert_userfile_preview_hint_x2" class="input-text" style="width:50px;">
+							Y2<input type="text" readonly name="img_y2" id="advert_userfile_preview_hint_y2" class="input-text" style="width:50px;">
+							<input type="hidden" name="img_width_org" id="advert_userfile_preview_hint_width_org">
+							<input type="hidden" name="img_height_org" id="advert_userfile_preview_hint_height_org">
+							<input type="hidden" name="img_width_new" id="advert_userfile_preview_hint_width_new">
+							<input type="hidden" name="img_height_new" id="advert_userfile_preview_hint_height_new">
+			</div>	
+			
+			<table border="0" width="100%" CELLPADDING="0" CELLSPACING="0" id="advert_userfile_preview_table" >
 				<tr>
-					<td>
-						<div id="advert_userfile_preview" style="margin: 10px;"></div>	
+					<td align="center">
+						<div id="advert_userfile_preview">
+							<img src="" id="advert_userfile_img">
+						</div>	
 					</td>	
-					<td valign="top">
-						<div id="advert_userfile_preview_hint" style="margin: 10px; padding: 10px; color: white;"></div>
-					</td>
 				</tr>
 			</table>
 		</td>

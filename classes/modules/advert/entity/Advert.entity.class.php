@@ -11,7 +11,7 @@ class PluginAdvert_ModuleAdvert_EntityAdvert extends Entity
         } 
         public function getAdvertUserOwnerLogin() {
                 return $this->_aData['user_owner_login'];
-        }         
+        }		
         public function getAdvertStatus() {
                 return $this->_aData['advert_status'];
         }         
@@ -94,7 +94,7 @@ class PluginAdvert_ModuleAdvert_EntityAdvert extends Entity
         }
         public function setAdvertUserOwnerLogin($data) {
                 $this->_aData['user_owner_login']=$data;
-        }          
+        }   			
         public function setAdvertStatus($data) {
                 $this->_aData['advert_status']=$data;
         }

@@ -6,6 +6,7 @@ $config = array();
 // Путь для загружаемых файлов 
 //  Для тестов убран в директорую плагина. 
 $config['path_to_files'] = 'plugins/advert/templates/skin/default/images/files/';
+//$config['path_to_files'] = 'uploads/advert/';
 
 // Страница которая выводиться если у пользователя недостаточно прав на использования данного фунционала
 // Если параметр не задан выводиться имформационное сообешние согласно текста в lang
@@ -91,7 +92,7 @@ $config['block_types'] = array (
 		'text' => array(
 			'name' => 'Текстовый',
 			'css'  => array(
-				'-def' => 'Системный (стили шаблона)',
+				'-def' => 'Cтили шаблона',
 				'-redBorder' => 'Красная рамка',
 				'-blueBorder' => 'Синяя рамка',
 				'-greyBorderDashed' => 'Серая рамка (пунктир)',
@@ -102,14 +103,14 @@ $config['block_types'] = array (
 		'banner' => array(	
 			'name' => 'Баннер',
 			'css'  => array(
-				'-def' => 'Системный (стили шаблона)',
+				'-def' => 'Cтили шаблона',
 				'-emptyCenter' => 'Стилии отключены'
 			),
 		),
 		'code' => array(	
 			'name' => 'Код',
 			'css'  => array(
-				'-def' => 'Системный (стили шаблона)',
+				'-def' => 'Cтили шаблона',
 				'-emptyCenter' => 'Стилии отключены'
 			),
 		),		
@@ -119,7 +120,7 @@ $config['block_types'] = array (
 		'text' => array(
 			'name' => 'Текстовый',
 			'css'  => array(
-				'-def' => 'Системный (стили шаблона)',
+				'-def' => 'Cтили шаблона',
 				'-redBorder' => 'Красная рамка',
 				'-blueBorder' => 'Синяя рамка',
 				'-adsStyle' => 'ADS Style',
@@ -129,7 +130,7 @@ $config['block_types'] = array (
 		'banner' => array(	
 			'name' => 'Баннер',
 			'css'  => array(
-				'-def' => 'Системный (стили шаблона)',
+				'-def' => 'Cтили шаблона',
 				'-emptyCenter' => 'Стилии отключены'
 			),
 		),			

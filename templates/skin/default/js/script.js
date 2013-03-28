@@ -188,57 +188,75 @@ function advert_checkAddData(formName)
 //
 function advert_uploadfile(input) 
 {
-	if (input.files && input.files[0]) {
+	if (input.files && input.files[0]) 
+	{
 		var reader = new FileReader();
 
-		reader.onload = function (e) {
+		reader.onload = function (event) 
+		{
 			var img = new Image;
 			
-			img.onload = function() {
+			img.onload = function()
+			{
+				var widthNormal = 700;
+				var img_height = img.height;
+				var img_width = img.width;
 
-				$("#advert_userfile_size_hint").text('Размер '+img.width+' x '+img.height+' Нажмите для показа preview !');
-				$("#advert_userfile_size_hint").css({'background': '#336699', 'padding':'5px', 'color': 'white','cursor':'pointer'});
+				$("#advert_userfile_size_hint").text('Размер изображения '+img.width+' x '+img.height);
+				$("#advert_userfile_size_hint").css({'background': '#336699', 'padding':'5px', 'color': 'white'});
 
-				$("#advert_userfile_preview").css("background-image", "url(" + e.target.result + ")");
-				$("#advert_userfile_preview").css("background-repeat", 'no-repeat');
 				
-				//
-				$("#advert_userfile_size_error").text('');
-				$("#advert_userfile_size_error").css({'background': 'none'});
-				$("#advert_userfile_preview_hint").text('');
-				$("#advert_userfile_preview_hint").css({'background': 'none'});
-				
-				var widthNormal = 300;
 				if(img.width > widthNormal)
 				{
-					$("#advert_userfile_preview").css("width", widthNormal);
 					var widthDiffPersent = ( ( img.width - widthNormal ) * 100 ) / img.width;
 					var heightNew = (img.height - (widthDiffPersent * img.height ) / 100 );
-					$("#advert_userfile_preview").css("height", heightNew);
-					
-					$("#advert_userfile_preview").css("background-size", "100%");
-					$("#advert_userfile_size_error").text('Ширина '+img.width+' !!!');
-					$("#advert_userfile_size_error").css({'background': 'red', 'padding':'5px', 'color': 'white'});
-					$("#advert_userfile_preview_hint").text('Есть большая вероятость что при встевке в sidebar изображение будет выходить за границы блока. Оптимальный размер изображения для sidebar по ширине 250-300 px Будте внимательны !');
-					$("#advert_userfile_preview_hint").css({'background': 'red'});
+					img_height = heightNew;
+					img_width = widthNormal;
 				}
-				else
-				{
-					$("#advert_userfile_preview").css("width", img.width);
-					$("#advert_userfile_preview").css("height", img.height);
-					//$("#advert_userfile_preview_hint").text('С изображением вроде все нормально :)');
-				}		
-				
-				//$('#blah')
-				//.attr('src', e.target.result)
-				//.width(img.width)
-				//.height(img.height);
-			};
-			img.src = reader.result;
+				//
+				$('#advert_userfile_preview').css({'margin':'10px'});
+				$('#advert_userfile_preview_hint').fadeIn('slow');				
+				//
+				$('#advert_userfile_preview_hint_width_new').val(img_width);  
+				$('#advert_userfile_preview_hint_height_new').val(img_height);  
+				$('#advert_userfile_preview_hint_width_org').val(img.width);  
+				$('#advert_userfile_preview_hint_height_org').val(img.height);  
+				//
+				$('#advert_userfile_img').attr('src', img.src).width(img_width).height(img_height);	
+				$('#advert_userfile_img').imgAreaSelect( {remove: true} );	
+				$('#advert_userfile_img').imgAreaSelect({handles: true, onSelectChange: image_preview_onSelectChange, onSelectEnd: image_preview_onSelectEnd});		
+			}
+			
+			img.src = event.target.result;
 		};
 
 		reader.readAsDataURL(input.files[0]);
 	}
+}
+//
+function image_preview_onSelectEnd(img, selection)
+{
+    if (!selection.width || !selection.height)
+	{        
+		$('#advert_userfile_preview_hint_width').val(0);
+		$('#advert_userfile_preview_hint_height').val(0);    
+		$('#advert_userfile_preview_hint_x1').val(0);  
+		$('#advert_userfile_preview_hint_y1').val(0);  
+		$('#advert_userfile_preview_hint_x2').val(0);  
+		$('#advert_userfile_preview_hint_y2').val(0);  
+		return;
+	}	
+}
+function image_preview_onSelectChange(img, selection) {
+    if (!selection.width || !selection.height)
+        return;
+	
+    $('#advert_userfile_preview_hint_width').val(selection.width);
+    $('#advert_userfile_preview_hint_height').val(selection.height);    
+	$('#advert_userfile_preview_hint_x1').val(selection.x1);  
+	$('#advert_userfile_preview_hint_y1').val(selection.y1);  
+	$('#advert_userfile_preview_hint_x2').val(selection.x2);  
+	$('#advert_userfile_preview_hint_y2').val(selection.y2); 	
 }
 //
 
