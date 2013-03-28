@@ -1,7 +1,7 @@
-<?php
+ï»¿<?php
 //
-//  Ïîëüçîâàòåëüñêèå íàñòðîéêè 
-//  Ïåðåèìåíóéòå âàéë â config.local.php 
+//  ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ 
+//  ÐŸÐµÑ€ÐµÐ¸Ð¼ÐµÐ½ÑƒÐ¹Ñ‚Ðµ Ð²Ð°Ð¹Ð» Ð² config.local.php 
 //
 $config['path_to_files'] = 'uploads/advert/';
 $config['defuser'] = 'admin';
