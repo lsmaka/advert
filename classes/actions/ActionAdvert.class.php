@@ -101,6 +101,14 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
     }
     protected function EventSettings() {
 
+	//
+	$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/style_system.css");
+	$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/script.js");
+
+	$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/external/imgareaselect-default.css");
+	$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/external/jquery.imgareaselect.js");	
+	//
+	
 	$this->oUserCurrent=$this->User_GetUserCurrent();
 	$aAllowUsers = Config::Get('plugin.advert.allow_users');
 	$aDisableUsers = Config::Get('plugin.advert.disable_users');

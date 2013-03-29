@@ -5,5 +5,3 @@
 //
 $config['path_to_files'] = 'uploads/advert/';
 $config['defuser'] = 'admin';
-
-?>
