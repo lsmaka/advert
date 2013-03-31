@@ -30,7 +30,7 @@ class PluginAdvert extends Plugin {
     public function Init() {
         //$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/style_system.css");
         $this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/style_user.css");
-        //$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/script.js");
+        $this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/script_user.js");
 		
 		//
 		//$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/external/imgareaselect-default.css");

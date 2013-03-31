@@ -103,7 +103,7 @@ class PluginAdvert_ActionAdvert extends ActionPlugin {
 
 	//
 	$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/style_system.css");
-	$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/script.js");
+	$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/script_system.js");
 
 	$this->Viewer_AppendStyle(Plugin::GetTemplatePath(__CLASS__)."css/external/imgareaselect-default.css");
 	$this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__)."js/external/jquery.imgareaselect.js");	
