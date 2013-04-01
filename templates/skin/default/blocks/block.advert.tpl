@@ -1,4 +1,4 @@
-﻿{if !$oAdvert}
+{if !$oAdvert}
 	{assign var="oAdvert" value=$params.oadvert} 
 {/if}	
 {assign var="BlockClass" value=$oAdvert->getAdvertBlockCss()} 
